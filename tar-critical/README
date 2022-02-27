@@ -1,0 +1,207 @@
+Mon Dec 17 2021
+Wed Dec 22 2021
+Thu Dec 23 2021
+Tue Dec 28 2021
+Wed Dec 29 2021
+Thu Dec 30 2021
+_____________________________________________________________________________
+PREAMBLE
+_____________________________________________________________________________
+
+This "recipe" should be implemented on a Scientific Linux 6.10, 32 bit, box.
+
+We've tended to start from configuration
+      "Web Development Workstation"
+on a SL6.10 install disk(s), and then add every package that looks like it's
+associated with robust software development.
+
+Compilers gcc and g++ are the most direct requirements, but there are many others
+(make...)!
+
+This recipe is for a user, "ualusr-virtual" using tcsh shell, on this box.
+
+Terminology used here is that this freshly set up, pristine box, is a
+      "new box"
+This state has the lead stanza in the recipe.
+
+Once this first stanza has been executed, the box is a
+      "working box"
+This state has all the rest of the stanzas in the recipe, starting from the second.
+
+The contents of directory
+      .../tar-critical/
+are assumed available, hopefully cloned/downloaded into ~ or such from "GIT".
+
+For the time being, tar-critical is copied from a "swap drive".
+
+This includes file
+      .../tar-critical/tcshrcForWorkingBox
+which becomes the tcsh run command/control file for ualusr-virtual
+      ~/.tcshrc
+
+Our philosophy is
+      "GIT controls the environment"
+
+The user is cautioned against modifying this environment.
+
+Thus the user, called ualusr-virtual, is intended to continue in the "working box"
+state.
+
+Both of these states, "new box", and "working box", are likely to be malleable/mutable in practice.
+
+_____________________________________________________________________________
+RECIPE
+_____________________________________________________________________________
+
+Launch New Terminal:
+   For new box:
+      cd
+      setenv UALUSR `pwd`
+
+      mkdir   USPAS
+      mkdir   USPAS/tools
+      setenv  USPAS  $UALUSR/USPAS
+
+      cp /media/RT-Jan2021/home/ualusr-virtual/tar-critical/ual1.tar  USPAS/
+      cd USPAS/
+      tar xvf ual1.tar
+
+      cp /media/RT-Jan2021/home/ualusr-virtual/tar-critical/tcshrcForWorkingBox ~/.tcshrc
+
+      exit
+  (This is now a "working box")
+
+   For working box:
+  (Launch New Terminal) probably already done
+
+      cd $USPAS/tools/
+      \cp ~/tar-critical/qt.tar .
+      : \cp /media/RT-Jan2021/home/ualusr-virtual/tar-critical/qt.tar .
+      \rm -rf qt
+      tar xvf qt.tar
+      cd qt
+      ./configure --thread -no-xft -qt-gif --no-exceptions
+            yes
+
+(libXmu)?
+      pushd /usr/lib/
+      su
+      
+      The goal is this file structure:
+            [root@T530-4 lib]# ll libXmu.so*
+                  lrwxrwxrwx. 1 root root     15 Dec 24 06:39 libXmu.so -> libXmu.so.6.2.0
+                  lrwxrwxrwx. 1 root root     15 Dec 24  2021 libXmu.so.6 -> libXmu.so.6.2.0
+                  lrwxrwxrwx. 1 root root     15 Dec 24 06:40 libXmu.so.6.2 -> libXmu.so.6.2.0
+                  -rwxr-xr-x. 1 root root 100344 Feb 22  2013 libXmu.so.6.2.0
+
+      Commands such as:
+            ln -s libXmu.so.6.2.0 libXmu.so
+            ...
+      might be necessary.
+[root@T530-4 lib]# exit
+      popd 
+
+      make >& make.log
+        :     (spot check)
+      ll lib/libqt-mt.so.3.3.4
+        :    8141331 this is with gcc34
+        :    8338158 this is with gcc44
+
+-----------------------------------
+
+  (ln -s /usr/lib/libXpm.so.4.11.0 /usr/lib/libXpm.so)?    T530-4 SL6.5
+  (ln -s /usr/lib/libXpm.so.6* /usr/lib/libXpm.so)?        T530-3 SL6.10
+[root@T530-4 lib]# ll libXpm.so*
+lrwxrwxrwx. 1 root root    16 Dec 24 06:54 libXpm.so -> libXpm.so.4.11.0
+lrwxrwxrwx. 1 root root    16 Dec 24  2021 libXpm.so.4 -> libXpm.so.4.11.0
+lrwxrwxrwx. 1 root root    16 Dec 24 06:54 libXpm.so.4.11 -> libXpm.so.4.11.0
+-rwxr-xr-x. 1 root root 69444 Feb 22  2013 libXpm.so.4.11.0
+[root@T530-4 lib]# 
+
+  cd $USPAS/tools/
+  \cp ~/tar-critical/root.tar .
+  : \cp /media/RT-Jan2021/home/ualusr-virtual/tar-critical/root.tar .
+  \rm -rf ./root
+  tar xvf root.tar
+  cd root
+  ./configure --enable-soversion --enable-qt --enable-table --disable-ldap --with-qt-incdir=$USPAS/tools/qt/include/ --with-qt-libdir=$USPAS/tools/qt/lib/
+  make all >& make.log
+  ll lib/libCore.so*
+        : 12      lib/libCore.so -> libCore.so.4
+        : 15      lib/libCore.so.4 -> libCore.so.4.04
+        : 8503578 lib/libCore.so.4.04
+        : 8503642 lib/libCore.so.4.04
+
+  \cp /media/RT-Jan2021/home/ualusr-virtual/tar-critical/libGQt.so.4.04 lib
+  ln -s lib/libGQt.so.4.04 lib/libGQt.so.4
+  ln -s lib/libGQt.so.4.04 lib/libGQt.so
+  ll lib/libGQt.so*
+        : 18      lib/libGQt.so -> libGQt.so.4.04
+        : 18      lib/libGQt.so.4 -> libGQt.so.4.04
+        : 1041782 lib/libGQt.so.4.04 
+
+   cd $USPAS
+    \cp ~/tar-critical/ual1.tar .
+    : \cp /media/RT-Jan2021/home/ualusr-virtual/tar-critical/libGQt.so.4.04 lib
+    \rm -rf ual1
+    tar xvf ual1.tar 
+       : bug in setup-ual-env 
+       :       XERCESCROOT $UAL/tools/tars/xerces-c-src_2_6_0  ->
+       :       XERCESCROOT $UAL/tools/tars/xerces-c-src_2_7_0
+   cd $UAL
+   make clean
+   make >& make.log    
+   ll codes/UAL/lib/linux/libUal.so
+        : 643612
+
+   cd $UAL/gui
+   \cp ~/tar-critical/QT.tar .
+   : \cp /media/RT-Jan2021/home/ualusr-virtual/tar-critical/QT.tar .
+   \rm -rf QT
+   tar xvf QT.tar
+   cd QT
+   make clean
+   make >& make.log
+   ll lib/linux/libUalQt.so
+        : 2607521
+        : 2607541
+        : 2607117
+
+   cd $UAL/gui
+   \cp ~/tar-critical/ROOT.tar .
+   : \cp /media/RT-Jan2021/home/ualusr-virtual/tar-critical/ROOT.tar .
+   \rm -rf ROOT
+   tar xvf ROOT.tar
+   cd ROOT
+   make clean
+   make >& make.log
+   ll lib/linux/libUalRootViewers.so
+        : 3702843
+        : 3646685
+        : 3646117
+
+   cd $USPAS
+   \cp ~/tar-critical/examples.tar .
+   : \cp /media/RT-Jan2021/home/ualusr-virtual/tar-critical/examples.tar .
+   \rm -rf examples
+   tar xvf examples.tar
+
+   cd $USPAS
+   cd examples/player
+   make clean
+   make
+        :          (ignore failed run build)
+   ll lib/linux/libUspasPlayer.so
+        : 464997
+        : 460584
+
+   cd $USPAS
+   cd examples/longitudinal
+   make clean
+   make
+   : cd lib/linux
+   cd lib
+   setenv LD_LIBRARY_PATH /home/ualusr-virtual/USPAS/tools/qt/lib/:$LD_LIBRARY_PATH
+   ./linux/run ring ../../lattices/eq_tune_fodo.adxf ../apdf/tibetan.apdf
+   : ./linux/run ring ../sxf/CLS.sxf ../apdf/tibetan.apdf
+   : ./run ring ../../../lattices/eq_tune_fodo.sxf ../apdf/tibetan.apdf
