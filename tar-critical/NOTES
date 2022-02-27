@@ -1,0 +1,33 @@
+File              Genesis
+_________________________________________________________________________
+
+root.tar       root_v4-5.34.06
+
+ual1.tar       ual1-from-GIT-11_18_2021 ("modern UAL bits")
+
+QT.tar         USPAS-no-write ("early UAL bits")
+                 few small mods to ParameterViewer to do with muParser syntax
+
+ROOT.tar       USPAS-no-write ("early UAL bits")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+__________________________________________________________________________________________
+
+g++ -Wl,--allow-shlib-undefined `$ROOTSYS/bin/root-config --cflags --glibs` -I$QTDIR/include -L$QTDIR/lib -lqt-mt -I/home/ualusr-virtual/USPAS/tools/qt_forROOT/qt/inc/ /home/ualusr-virtual/USPAS/tools/qt_forROOT/lib/libGQt.so HelloCanvas.cxx -o HelloCanvas
+
+
