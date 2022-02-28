@@ -29,13 +29,13 @@ Once this first stanza has been executed, the box is a
 This state has all the rest of the stanzas in the recipe, starting from the second.
 
 The contents of directory
-      ~/tar-critical/
+      .../tar-critical/
 are assumed available, hopefully cloned/downloaded into ~ or such from "GIT".
 
 For the time being, tar-critical is copied from a "swap drive".
 
 This includes file
-      ~/tar-critical/tcshrcForWorkingBox
+      .../tar-critical/tcshrcForWorkingBox
 which becomes the tcsh run command/control file for ualusr-virtual
       ~/.tcshrc
 
@@ -53,27 +53,20 @@ _____________________________________________________________________________
 RECIPE
 _____________________________________________________________________________
 
-For new box:
-   Launch New Terminal:
-      cp ~/tar-critical/tcshrcForNewBox ~/.tcshrc
-      exit
-
-   Launch New Terminal:
-      ... "look around", "back up"...
-
+Launch New Terminal:
+   For new box:
+      cd
       setenv UALUSR `pwd`
 
-      \rm -rf USPAS
       mkdir   USPAS
       mkdir   USPAS/tools
       setenv  USPAS  $UALUSR/USPAS
 
-      cp ~/tar-critical/ual1.tar  $USPAS
-
-      cd $USPAS
+      cp /media/RT-Jan2021/home/ualusr-virtual/tar-critical/ual1.tar  USPAS/
+      cd USPAS/
       tar xvf ual1.tar
 
-      cp ~/tar-critical/tcshrcForWorkingBox ~/.tcshrc
+      cp /media/RT-Jan2021/home/ualusr-virtual/tar-critical/tcshrcForWorkingBox ~/.tcshrc
 
       exit
   (This is now a "working box")
@@ -102,7 +95,7 @@ For new box:
                   -rwxr-xr-x. 1 root root 100344 Feb 22  2013 libXmu.so.6.2.0
 
       Commands such as:
-            ln -s libXmu.so.6.2.0 libXmu.so.6.2
+            ln -s libXmu.so.6.2.0 libXmu.so
             ...
       might be necessary.
 [root@T530-4 lib]# exit
@@ -139,8 +132,7 @@ lrwxrwxrwx. 1 root root    16 Dec 24 06:54 libXpm.so.4.11 -> libXpm.so.4.11.0
         : 8503578 lib/libCore.so.4.04
         : 8503642 lib/libCore.so.4.04
 
-: \cp /media/RT-Jan2021/home/ualusr-virtual/tar-critical/libGQt.so.4.04 lib
-  \cp ~/tar-critical/libGQt.so.4.04 lib
+  \cp /media/RT-Jan2021/home/ualusr-virtual/tar-critical/libGQt.so.4.04 lib
   ln -s lib/libGQt.so.4.04 lib/libGQt.so.4
   ln -s lib/libGQt.so.4.04 lib/libGQt.so
   ll lib/libGQt.so*
@@ -149,10 +141,10 @@ lrwxrwxrwx. 1 root root    16 Dec 24 06:54 libXpm.so.4.11 -> libXpm.so.4.11.0
         : 1041782 lib/libGQt.so.4.04 
 
    cd $USPAS
-    : \cp ~/tar-critical/ual1.tar .
+    \cp ~/tar-critical/ual1.tar .
     : \cp /media/RT-Jan2021/home/ualusr-virtual/tar-critical/libGQt.so.4.04 lib
-    : \rm -rf ual1
-    : tar xvf ual1.tar 
+    \rm -rf ual1
+    tar xvf ual1.tar 
        : bug in setup-ual-env 
        :       XERCESCROOT $UAL/tools/tars/xerces-c-src_2_6_0  ->
        :       XERCESCROOT $UAL/tools/tars/xerces-c-src_2_7_0
