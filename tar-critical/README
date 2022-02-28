@@ -126,10 +126,11 @@ lrwxrwxrwx. 1 root root    16 Dec 24 06:54 libXpm.so.4.11 -> libXpm.so.4.11.0
 [root@T530-4 lib]# 
 
   cd $USPAS/tools/
-  \cp ~/tar-critical/root.tar .
+  \cp ~/tar-critical/root.tar.gz .
+  : \cp ~/tar-critical/root.tar .
   : \cp /media/RT-Jan2021/home/ualusr-virtual/tar-critical/root.tar .
   \rm -rf ./root
-  tar xvf root.tar
+  tar xvfz root.tar.gz
   cd root
   ./configure --enable-soversion --enable-qt --enable-table --disable-ldap --with-qt-incdir=$USPAS/tools/qt/include/ --with-qt-libdir=$USPAS/tools/qt/lib/
   make all >& make.log
