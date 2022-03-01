@@ -1,0 +1,17 @@
+setenv UALUSR     `pwd`
+setenv USPAS      $UALUSR/USPAS
+
+setenv UAL        $USPAS/ual1
+setenv UAL_USPAS  $USPAS/examples
+
+source $UAL/setup-linux-ual
+
+setenv QTDIR      $USPAS/tools/qt/
+setenv QTINC      $QTDIR/include/
+setenv QTLIB      $QTDIR/lib/
+setenv ROOTSYS    $UALUSR/USPAS/tools/root
+
+setenv UAL_GUI    $UAL/gui/
+
+alias ll 'ls -lt'
+alias h  'history'
