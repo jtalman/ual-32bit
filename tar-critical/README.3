@@ -5,19 +5,13 @@ Tue Dec 28 2021
 Wed Dec 29 2021
 Thu Dec 30 2021
 Sat Mar 12 2022
-Thu Mar 24 2022
 _____________________________________________________________________________
 PREAMBLE
 _____________________________________________________________________________
 
-This recipe is for a user, "ualusr-32bit" using tcsh shell, on a "32 bit box".
-
 The contents of directory
       ~/tar-critical/
-are assumed available, cloned/downloaded into ~ or such from "GIT".
-      git clone https://github.com/jtalman/ual-32bit
-
-This file, README, is on the web as
+are assumed available, hopefully cloned/downloaded into ~ or such from "GIT".
 --->>>      https://github.com/jtalman/ual-32bit/tar-critical/README   <<<---
 Specific directions follow...
 
@@ -31,34 +25,36 @@ associated with robust software development.
 Compilers gcc and g++ are the most direct requirements, but there are many others
 (make...)!
 
+This recipe is for a user, "ualusr-virtual" using tcsh shell, on this box.
+
 Terminology used here is that this freshly set up, pristine box, is a
       "new box"
 This state has the lead stanza in the recipe.
 
-Once the "RECIPE's" first stanza below has been executed, the box is a
+Once this first stanza has been executed, the box is a
       "working box"
 This state has all the rest of the stanzas in the recipe, starting from the second.
 
-File
+For the time being, tar-critical is copied from a "swap drive".
+
+This includes file
       ~/tar-critical/tcshrcForWorkingBox
-becomes the tcsh run command/control file for ualusr-32bit
+which becomes the tcsh run command/control file for ualusr-virtual
       ~/.tcshrc
 
 Our philosophy is
       "GIT controls most of the environment"
 The user is cautioned against modifying this environment.
 
-Thus the user, called ualusr-32bit, is intended to continue in the "working box"
+Thus the user, called ualusr-virtual, is intended to continue in the "working box"
 state.
 
-Both of these states, "new box", and "working box", are likely to be malleable/mutable in practice
-as the user becomes fluent.
+Both of these states, "new box", and "working box", are likely to be malleable/mutable in practice.
 
 _____________________________________________________________________________
 RECIPE
 _____________________________________________________________________________
 
-BEGIN FIRST STANZA:
 For new box:
    Launch New Terminal:
       cd
@@ -89,14 +85,13 @@ For new box:
 
       exit
   (This is now a "working box")
-END FIRST STANZA:
 
    For working box:
   (Launch New Terminal) probably already done
 
       cd $USPAS/tools/
       \cp ~/tar-critical/qt.tar .
-      : \cp /media/RT-Jan2021/home/ualusr-32bit/tar-critical/qt.tar .
+      : \cp /media/RT-Jan2021/home/ualusr-virtual/tar-critical/qt.tar .
       \rm -rf qt
       tar xvf qt.tar
       cd qt
@@ -141,7 +136,7 @@ lrwxrwxrwx. 1 root root    16 Dec 24 06:54 libXpm.so.4.11 -> libXpm.so.4.11.0
   cd $USPAS/tools/
   \cp ~/tar-critical/root.tar.gz .
   : \cp ~/tar-critical/root.tar .
-  : \cp /media/RT-Jan2021/home/ualusr-32bit/tar-critical/root.tar .
+  : \cp /media/RT-Jan2021/home/ualusr-virtual/tar-critical/root.tar .
   \rm -rf ./root
   tar xvfz root.tar.gz
   cd root
@@ -153,7 +148,7 @@ lrwxrwxrwx. 1 root root    16 Dec 24 06:54 libXpm.so.4.11 -> libXpm.so.4.11.0
         : 8503578 lib/libCore.so.4.04
         : 8503642 lib/libCore.so.4.04
 
-: \cp /media/RT-Jan2021/home/ualusr-32bit/tar-critical/libGQt.so.4.04 lib
+: \cp /media/RT-Jan2021/home/ualusr-virtual/tar-critical/libGQt.so.4.04 lib
   \cp ~/tar-critical/libGQt.so.4.04 lib
   ln -s lib/libGQt.so.4.04 lib/libGQt.so.4
   ln -s lib/libGQt.so.4.04 lib/libGQt.so
@@ -164,7 +159,7 @@ lrwxrwxrwx. 1 root root    16 Dec 24 06:54 libXpm.so.4.11 -> libXpm.so.4.11.0
 
    cd $USPAS
     : \cp ~/tar-critical/ual1.tar .
-    : \cp /media/RT-Jan2021/home/ualusr-32bit/tar-critical/libGQt.so.4.04 lib
+    : \cp /media/RT-Jan2021/home/ualusr-virtual/tar-critical/libGQt.so.4.04 lib
     : \rm -rf ual1
     : tar xvf ual1.tar 
        : bug in setup-ual-env 
@@ -178,7 +173,7 @@ lrwxrwxrwx. 1 root root    16 Dec 24 06:54 libXpm.so.4.11 -> libXpm.so.4.11.0
 
    cd $UAL/gui
    \cp ~/tar-critical/QT.tar .
-   : \cp /media/RT-Jan2021/home/ualusr-32bit/tar-critical/QT.tar .
+   : \cp /media/RT-Jan2021/home/ualusr-virtual/tar-critical/QT.tar .
    \rm -rf QT
    tar xvf QT.tar
    cd QT
@@ -191,7 +186,7 @@ lrwxrwxrwx. 1 root root    16 Dec 24 06:54 libXpm.so.4.11 -> libXpm.so.4.11.0
 
    cd $UAL/gui
    \cp ~/tar-critical/ROOT.tar .
-   : \cp /media/RT-Jan2021/home/ualusr-32bit/tar-critical/ROOT.tar .
+   : \cp /media/RT-Jan2021/home/ualusr-virtual/tar-critical/ROOT.tar .
    \rm -rf ROOT
    tar xvf ROOT.tar
    cd ROOT
@@ -204,7 +199,7 @@ lrwxrwxrwx. 1 root root    16 Dec 24 06:54 libXpm.so.4.11 -> libXpm.so.4.11.0
 
    cd $USPAS
    \cp ~/tar-critical/examples.tar .
-   : \cp /media/RT-Jan2021/home/ualusr-32bit/tar-critical/examples.tar .
+   : \cp /media/RT-Jan2021/home/ualusr-virtual/tar-critical/examples.tar .
    \rm -rf examples
    tar xvf examples.tar
 
@@ -223,8 +218,7 @@ lrwxrwxrwx. 1 root root    16 Dec 24 06:54 libXpm.so.4.11 -> libXpm.so.4.11.0
    make
    : cd lib/linux
    cd lib
-   setenv LD_PRELOAD /home/ualusr-32bit/USPAS/tools/qt/lib/libqt-mt.so.3.3.4:
-   setenv LD_LIBRARY_PATH /home/ualusr-32bit/USPAS/tools/qt/lib/:$LD_LIBRARY_PATH
+   setenv LD_LIBRARY_PATH /home/ualusr-virtual/USPAS/tools/qt/lib/:$LD_LIBRARY_PATH
    ./linux/run ring ../../lattices/eq_tune_fodo.adxf ../apdf/tibetan.apdf
    : ./linux/run ring ../sxf/CLS.sxf ../apdf/tibetan.apdf
    : ./run ring ../../../lattices/eq_tune_fodo.sxf ../apdf/tibetan.apdf
