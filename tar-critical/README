@@ -14,8 +14,9 @@ This recipe is for a user, "ualusr-32bit" using tcsh shell, on a "32 bit box".
 
 The contents of directory
       ~/tar-critical/
-are assumed available, cloned/downloaded into ~ or such from "GIT".
+are assumed available, cloned/downloaded into ~/ual-32bit/tar-critical/ or such from "GIT"
       git clone https://github.com/jtalman/ual-32bit
+and then copied/moved there.
 
 This file, README, is on the web as
 --->>>      https://github.com/jtalman/ual-32bit/tar-critical/README   <<<---
