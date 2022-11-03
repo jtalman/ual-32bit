@@ -1,0 +1,25 @@
+\contentsline {section}{\numberline {1}Tracking Results and Interpretation}{3}
+\contentsline {subsection}{\numberline {1.1}Introduction}{3}
+\contentsline {subsection}{\numberline {1.2}Parameters and Twiss Functions of the ``Protonium'' Lattices}{3}
+\contentsline {subsection}{\numberline {1.3}Simplifications}{3}
+\contentsline {subsection}{\numberline {1.4}Cautionary Comments}{4}
+\contentsline {subsection}{\numberline {1.5}Protonium}{5}
+\contentsline {section}{\numberline {2}Coasting Beam Spin Precession in Idealized Rings}{5}
+\contentsline {subsection}{\numberline {2.1}Spin Evolution}{5}
+\contentsline {section}{\numberline {A}Spin Tracking in ETEAPOT}{12}
+\contentsline {subsection}{\numberline {A.1}Approximations}{12}
+\contentsline {subsection}{\numberline {A.2}Spin Coordinates}{12}
+\contentsline {subsubsection}{\numberline {A.2.1}Bend Coordinates}{12}
+\contentsline {subsubsection}{\numberline {A.2.2}Transformation From Lab Frame to Bend Frame}{13}
+\contentsline {subsubsection}{\numberline {A.2.3}Non-Bend Elements}{14}
+\contentsline {subsection}{\numberline {A.3}Spin Evolution Through Mu\~noz-Pavic Bends}{15}
+\contentsline {subsubsection}{\numberline {A.3.1}Analytic Formulas for Spin Precession}{15}
+\contentsline {subsubsection}{\numberline {A.3.2}Non-Perturbative Evaluation of the Spin Precession}{16}
+\contentsline {subsubsection}{\numberline {A.3.3}Perturbative Treatment Relative to the Magic Condition}{17}
+\contentsline {subsection}{\numberline {A.4}Spin Evolution Through Fringe Fields}{18}
+\contentsline {subsection}{\numberline {A.5}Spin Evolution Through Thin Elements}{20}
+\contentsline {subsection}{\numberline {A.6}Formulas Sensitive to Precession Sense}{22}
+\contentsline {section}{\numberline {B}UAL/ETEAPOT Code Description}{23}
+\contentsline {subsection}{\numberline {B.1}Server/Client Architecture}{23}
+\contentsline {subsection}{\numberline {B.2}User Responsibility in Connection with ``User Manifest''}{23}
+\contentsline {subsubsection}{\numberline {B.2.1}User Manifest File Contents}{23}

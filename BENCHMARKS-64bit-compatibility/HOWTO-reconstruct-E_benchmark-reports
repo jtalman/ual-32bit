@@ -1,0 +1,100 @@
+HOWTO-reconstruct-E_benchmark-reports, January 5, 2019
+------------------------------------------------------
+(I)
+-rw-r--r--. 1 talman talman 25048 May  2  2012 E_benchmark-augmented.tex
+Work as "ualusr2011" in "ual1075" 
+
+
+
+------------------------------------------------------
+(II)
+-rwxr-xr-x. 1 talman talman 23840 Sep  3  2012 E_benchmark-betas.tex*
+Work as "ualusr2011" in "ual1075" 
+
+make outputReady
+make clean
+make
+
+\cp data/eteapotMARKER.apdf data/eteapot.apdf
+
+./determineTwiss ./data/E_BM_M1.0_sl4.sxf -1 40 >! OUT
+
+// (split=1) betaX (b0x)  35.9195, QX 0.460553           , alphax (a0x) 8.3516e-09
+// (split=1) betaY (b0y) 263.356 , QY 0.20088              alphay (a0y) 4.8491e-09
+// compare with out/TWISS/TWISS_m=+0.00
+// reference UAL/ETEAPOT Results (Augmented) for Proton EDM Benchmark Lattices, J. Talman & R. Talman, April 29, 2012
+
+// generates a final line like
+./transferMatrices -1 4.90694e-09 35.9195 4.85187e-09 263.356 1326>! betaFunctions
+
+gnuplot
+   p 'out/TWISS/StndrdPrtcl0' u 2:3 w l
+   p 'out/TWISS/StndrdPrtcl1' u 2:3 w l,'out/TWISS/StndrdPrtcl2' u 2:3 w l
+   p 'out/TWISS/StndrdPrtcl1' u 2:4 w l,'out/TWISS/StndrdPrtcl2' u 2:4 w l
+   p 'out/TWISS/StndrdPrtcl3' u 2:3 w l,'out/TWISS/StndrdPrtcl4' u 2:3 w l
+   p 'out/TWISS/StndrdPrtcl3' u 2:4 w l,'out/TWISS/StndrdPrtcl4' u 2:4 w l
+   p 'out/TWISS/StndrdPrtcl5' u 2:5 w l,'out/TWISS/StndrdPrtcl6' u 2:5 w l
+   p 'out/TWISS/StndrdPrtcl5' u 2:6 w l,'out/TWISS/StndrdPrtcl6' u 2:6 w l
+   p 'out/TWISS/StndrdPrtcl7' u 2:5 w l,'out/TWISS/StndrdPrtcl8' u 2:5 w l
+   p 'out/TWISS/StndrdPrtcl7' u 2:6 w l,'out/TWISS/StndrdPrtcl8' u 2:6 w l
+   load 'gnuplot-ual867/BM_M1.0betax.gnuplot'
+
+[ualusr2011@x201-2 ETEAPOT]$ ll gnuplot-ual867/
+total 48
+-rw-rw-r--. 1 ualusr2011 ualusr2011 340 Jan  7 15:30 BM_II_Figure3.gnuplot
+-rw-rw-r--. 1 ualusr2011 ualusr2011 340 Jan  7 15:28 BM_II_Figure1.gnuplot
+-rw-rw-r--. 1 ualusr2011 ualusr2011 325 Jan  7 12:10 BM_M1.0betax.gnuplot
+-rw-rw-r--. 1 ualusr2011 ualusr2011 363 Jan  6 21:14 spotCheck.gnuplot
+-rw-rw-r--. 1 ualusr2011 ualusr2011 363 Jan  6 21:14 BM_ZSliceCompare.gnuplot
+-rw-rw-r--. 1 ualusr2011 ualusr2011 335 Jan  6 21:14 pEDMinAccRing_P1.0betax.gnuplot
+-rw-rw-r--. 1 ualusr2011 ualusr2011 335 Jan  6 21:14 pEDMinAccRing_P1.0betay.gnuplot
+-rw-rw-r--. 1 ualusr2011 ualusr2011 314 Jan  6 21:14 BM_Zbetax.gnuplot
+-rw-rw-r--. 1 ualusr2011 ualusr2011 315 Jan  6 21:14 BM_Zbetay.gnuplot
+-rw-rw-r--. 1 ualusr2011 ualusr2011 327 Jan  6 21:14 BM_M1.0betay.gnuplot
+-rw-rw-r--. 1 ualusr2011 ualusr2011 327 Jan  6 21:14 BM_P1.0betax.gnuplot
+-rw-rw-r--. 1 ualusr2011 ualusr2011 323 Jan  6 21:14 BM_P1.0betay.gnuplot
+
+------------------------------------------------------
+(III) 
+-rw-r--r--. 1 talman talman 50338 Jun  3  2014 E_benchmark-SynchOsc-mod.tex
+Work as "ualusr2011" in "ual1075"
+Follow 
+    runExampleFor_ETEAPOT_MltTurn-BM-III-backEditedTO-BMIII
+line-by-line to produce IG, which exactly matches the original
+      saveIG-BM_M1.0.RF
+[ualusr2011@x201-2 ETEAPOT]$ ll saveIG-BM_*
+-rw-rw-r--. 1 ualusr2011 ualusr2011 1683564 Jan  5 12:08 saveIG-BM_M1.0.RF
+-rw-rw-r--. 1 ualusr2011 ualusr2011 1685563 May 30  2014 saveIG-BM_Z.RF
+-rw-rw-r--. 1 ualusr2011 ualusr2011 1685563 May 30  2014 saveIG-BM_P1.0.RF
+Then 
+gnuplot
+   gnuplot> l 'forGnuplot-ual948/forGnuplot_Figure2'
+produces 
+    LongitPhSp_BM_M1.0p.eps
+which is needed for
+%
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1.2]{LongitPhSp_BM_M1.0p.eps}
+\caption{\label{fig:LongitPhSp_BM_M1.0}The longitudinal phase space for 
+the {\tt BM\_M1.0.RF} lattice is extended to large amplitudes approaching
+the limit of stability for the given RF parameters.
+Fractional energy offsets are 
+$\delta_{\rm UAL}=$ 0.000001, 0.000002, 0.000003, 0.000010. Unlike
+the inner three contours, for the outermost contour the particle was 
+launched with negligible initial betatron amplitude. 
+}
+\end{figure}
+%
+
+------------------------------------------------------
+(IV)
+-rw-r--r--. 1 talman talman  20555 Jan  9  2014 E_benchmark-IV.tex
+
+
+------------------------------------------------------
+(V)
+-rw-r--r--. 1 talman talman   82296 Jul 22  2014 E_benchmark-V.tex
+
+
+
