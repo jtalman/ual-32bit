@@ -28,7 +28,7 @@ We've tended to start from configuration
       "Web Development Workstation"
 on a SL6.10 install disk(s), and then add every package that looks like it's
 associated with robust software development:
-        DATE        # Packages            TYPE
+        DATE        # Packages             TYPE
       6/16/2024       1554           Pure Web Development Workstation (Configure Later)
 
 Compilers gcc and g++ are the most direct requirements, but there are many others
