@@ -6,6 +6,7 @@ Wed Dec 29 2021
 Thu Dec 30 2021
 Sat Mar 12 2022
 Thu Mar 24 2022
+Mon Jun 17 2024
 _____________________________________________________________________________
 PREAMBLE
 _____________________________________________________________________________
@@ -16,7 +17,9 @@ The contents of directory
       ~/tar-critical/
 are assumed available, cloned/downloaded into ~/ual-32bit/tar-critical/ or such from "GIT"
       git clone https://github.com/jtalman/ual-32bit
-and then copied/moved there.
+and then explicity copied/moved there:
+      ~/tar-critical/QT.tar
+      ~/tar-critical/...
 
 This file, README, is on the web as
 --->>>      https://github.com/jtalman/ual-32bit/tar-critical/README   <<<---
@@ -33,7 +36,7 @@ development:
         DATE        # Packages              TYPE
       6/16/2024       1554           Pure Web Development Workstation (Configure Later)
 
-      6/17/2024
+      6/17/2024                      Web Development Workstation (Configure Now)
 
 Compilers gcc and g++ are the most direct requirements, but there are many others
 (make...)!
