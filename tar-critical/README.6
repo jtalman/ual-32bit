@@ -255,8 +255,10 @@ END FIRST STANZA:
    make
    : cd lib/linux
    cd lib
-   setenv LD_PRELOAD /home/ualusr-32bit/USPAS/tools/qt/lib/libqt-mt.so.3.3.4:
+   setenv LD_PRELOAD /home/ualusr-32bit/USPAS/tools/qt/lib/libqt-mt.so.3.3.4
    setenv LD_LIBRARY_PATH /home/ualusr-32bit/USPAS/tools/qt/lib/:$LD_LIBRARY_PATH
+   setenv LD_LIBRARY_PATH /home/ualusr-32bit/USPAS/tools/root/lib/:$LD_LIBRARY_PATH
+
    ./linux/run ring ../../lattices/eq_tune_fodo.adxf ../apdf/tibetan.apdf
    : ./linux/run ring ../sxf/CLS.sxf ../apdf/tibetan.apdf
    : ./run ring ../../../lattices/eq_tune_fodo.sxf ../apdf/tibetan.apdf
