@@ -12,7 +12,7 @@ _____________________________________________________________________________
 PREAMBLE
 _____________________________________________________________________________
 
-This recipe is for a user, "ualusr-32bit" using tcsh shell, on a "32 bit box".
+This recipe is for a user, "ualusr2007" using tcsh shell, on a "32 bit box".
 
 The contents of directory
       ~/tar-critical/
@@ -62,14 +62,14 @@ This state has all the rest of the stanzas in the recipe, starting from the seco
 
 File
       ~/tar-critical/tcshrcForWorkingBox
-becomes the tcsh run command/control file for ualusr-32bit
+becomes the tcsh run command/control file for ualusr2007
       ~/.tcshrc
 
 Our philosophy is
       "GIT controls most of the environment"
 The user is cautioned against modifying this environment.
 
-Thus the user, called ualusr-32bit, is intended to continue in the "working box"
+Thus the user, called ualusr2007, is intended to continue in the "working box"
 state.
 
 Both of these states, "new box", and "working box", are likely to be malleable/mutable in practice
@@ -81,7 +81,7 @@ _____________________________________________________________________________
 
 BEGIN FIRST STANZA:
 For new box:
-   Login as ualusr-32bit
+   Login as ualusr2007
 
    Launch New Terminal:
       cd
@@ -121,7 +121,7 @@ END FIRST STANZA:
 
       cd $USPAS/tools/
       \cp ~/tar-critical/qt.tar .
-      : \cp /media/RT-Jan2021/home/ualusr-32bit/tar-critical/qt.tar .
+      : \cp /media/RT-Jan2021/home/ualusr2007/tar-critical/qt.tar .
       \rm -rf qt
       tar xvf qt.tar
       cd qt
@@ -171,7 +171,7 @@ END FIRST STANZA:
   cd $USPAS/tools/
   \cp ~/tar-critical/root.tar.gz .
   : \cp ~/tar-critical/root.tar .
-  : \cp /media/RT-Jan2021/home/ualusr-32bit/tar-critical/root.tar .
+  : \cp /media/RT-Jan2021/home/ualusr2007/tar-critical/root.tar .
   \rm -rf ./root
   tar xvfz root.tar.gz
   cd root
@@ -203,7 +203,7 @@ Again, having this "root - qt library" is VIMP!!
 ???????????????????????????????????????????????????????????????????????
 This stanza may or may not be necessary.
 
-: \cp /media/RT-Jan2021/home/ualusr-32bit/tar-critical/libGQt.so.4.04 lib
+: \cp /media/RT-Jan2021/home/ualusr2007/tar-critical/libGQt.so.4.04 lib
   \cp ~/tar-critical/libGQt.so.4.04 lib
   ln -s lib/libGQt.so.4.04 lib/libGQt.so.4
   ln -s lib/libGQt.so.4.04 lib/libGQt.so
@@ -213,7 +213,7 @@ This stanza may or may not be necessary.
 
    cd $USPAS
     : \cp ~/tar-critical/ual1.tar .
-    : \cp /media/RT-Jan2021/home/ualusr-32bit/tar-critical/libGQt.so.4.04 lib
+    : \cp /media/RT-Jan2021/home/ualusr2007/tar-critical/libGQt.so.4.04 lib
     : \rm -rf ual1
     : tar xvf ual1.tar 
        : bug in setup-ual-env 
@@ -227,7 +227,7 @@ This stanza may or may not be necessary.
 
    cd $UAL/gui
    \cp ~/tar-critical/QT.tar .
-   : \cp /media/RT-Jan2021/home/ualusr-32bit/tar-critical/QT.tar .
+   : \cp /media/RT-Jan2021/home/ualusr2007/tar-critical/QT.tar .
    \rm -rf QT
    tar xvf QT.tar
    cd QT
@@ -240,7 +240,7 @@ This stanza may or may not be necessary.
 
    cd $UAL/gui
    \cp ~/tar-critical/ROOT.tar .
-   : \cp /media/RT-Jan2021/home/ualusr-32bit/tar-critical/ROOT.tar .
+   : \cp /media/RT-Jan2021/home/ualusr2007/tar-critical/ROOT.tar .
    \rm -rf ROOT
    tar xvf ROOT.tar
    cd ROOT
@@ -253,7 +253,7 @@ This stanza may or may not be necessary.
 
    cd $USPAS
    \cp ~/tar-critical/examples.tar .
-   : \cp /media/RT-Jan2021/home/ualusr-32bit/tar-critical/examples.tar .
+   : \cp /media/RT-Jan2021/home/ualusr2007/tar-critical/examples.tar .
    \rm -rf examples
    tar xvf examples.tar
 
@@ -272,9 +272,9 @@ This stanza may or may not be necessary.
    make
    : cd lib/linux
    cd lib
-   setenv LD_PRELOAD /home/ualusr-32bit/USPAS/tools/qt/lib/libqt-mt.so.3.3.4
-   setenv LD_LIBRARY_PATH /home/ualusr-32bit/USPAS/tools/qt/lib/:$LD_LIBRARY_PATH
-   setenv LD_LIBRARY_PATH /home/ualusr-32bit/USPAS/tools/root/lib/:$LD_LIBRARY_PATH
+   setenv LD_PRELOAD /home/ualusr2007/USPAS/tools/qt/lib/libqt-mt.so.3.3.4
+   setenv LD_LIBRARY_PATH /home/ualusr2007/USPAS/tools/qt/lib/:$LD_LIBRARY_PATH
+   setenv LD_LIBRARY_PATH /home/ualusr2007/USPAS/tools/root/lib/:$LD_LIBRARY_PATH
 
    chmod a+x linux/run
 
