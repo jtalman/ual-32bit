@@ -8,6 +8,7 @@ Sat Mar 12 2022
 Thu Mar 24 2022
 Mon Jun 17 2024
 Tue Jun 18 2024
+Wed Jun 19 2024
 _____________________________________________________________________________
 PREAMBLE
 _____________________________________________________________________________
@@ -56,6 +57,17 @@ Terminology used here is that this freshly set up, pristine box, is a
       "new box"
 This state has the lead stanza in the recipe.
 
+In practice, the names involved here,
+            tar-critical
+            ual-32bit
+aren't likely to collide with already present names. Thus, one can clone the bits
+onto a non pristine box. Then build them according the second stanza. This while
+managing
+            ~/.tcshrc
+themselves.
+
+Stylisticaly, I (JDT), favor a dedicated gui box, installed from a pristine box.
+
 Once the "RECIPE's" first stanza below has been executed, the box is a
       "working box"
 This state has all the rest of the stanzas in the recipe, starting from the second.
@@ -66,13 +78,13 @@ becomes the tcsh run command/control file for ualusr2007
       ~/.tcshrc
 
 Our philosophy is
-      "GIT controls most of the environment"
+      "GIT controls most of the relevant environment"
 The user is cautioned against modifying this environment.
 
 Thus the user, called ualusr2007, is intended to continue in the "working box"
 state.
 
-Both of these states, "new box", and "working box", are likely to be malleable/mutable in practice
+Again, both of these states, "new box", and "working box", are likely to be malleable/mutable in practice
 as the user becomes fluent.
 
 _____________________________________________________________________________
@@ -114,6 +126,7 @@ For new box:
       exit
   (This is now a "working box")
 END FIRST STANZA:
+BEGIN SECOND STANZA:
 
    For working box:
 : (Launch New Terminal) probably already done
@@ -281,3 +294,4 @@ This stanza may or may not be necessary.
    ./linux/run ring ../../lattices/eq_tune_fodo.adxf ../apdf/tibetan.apdf
    : ./linux/run ring ../sxf/CLS.sxf ../apdf/tibetan.apdf
    : ./run ring ../../../lattices/eq_tune_fodo.sxf ../apdf/tibetan.apdf
+END SECOND STANZA:
