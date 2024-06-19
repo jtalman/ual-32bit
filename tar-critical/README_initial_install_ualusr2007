@@ -85,7 +85,7 @@ For new box:
 
    Launch New Terminal:
       cd
-      git clone https://github.com/jtalman/ualusr2007
+      git clone https://github.com/jtalman/ualusr-32bit
 
    Copy directory ~/ualusr2007/tar-critical to ~/tar-critical
       cp ~/tar-critical/tcshrcForNewBox ~/.tcshrc
