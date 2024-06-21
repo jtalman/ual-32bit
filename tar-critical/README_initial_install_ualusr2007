@@ -175,8 +175,7 @@ BEGIN SECOND STANZA:
         :    8338158 this is with gcc44
 
 -----------------------------------------------------------------------
-      pushd /usr/lib/
-      su
+
 (libXpm.so)?
       The goal is this file structure:
             [root@T530-4 lib]# ll libXpm.so*
