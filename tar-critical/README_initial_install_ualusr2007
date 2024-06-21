@@ -76,7 +76,7 @@ managing
             ~/.tcshrc
 themselves.
 
-Stylistically, I (JDT), favor a dedicated gui box, installed on a pristine box.
+Stylistically, I (JDT), favor a dedicated gui box, installed on a pristine box as a new user.
 
 Once the "RECIPE's" first stanza below has been executed, the box is a
       "working box"
