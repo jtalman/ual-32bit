@@ -31,6 +31,11 @@ and then explicitly copied/moved there:
       cp ~/ual-32bit/tar-critical/ROOT.tar  ~/tar-critical/ROOT.tar
       ...
 
+Commands
+      cd ~/ual-32bit/tar-critical
+      cp * ~/tar-critical
+might be easiest.
+
 This tortured syntax will hopefully be improved at some point.
 
 This README file, README_initial_install_ualusr2007, is on the web as
