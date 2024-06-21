@@ -28,7 +28,7 @@ and then explicitly copied/moved there:
       ~/tar-critical/...
 
 This file, README, is on the web as
---->>>      https://github.com/jtalman/ualusr2007/tar-critical/README   <<<---
+--->>>      https://github.com/jtalman/ualusr2007/tar-critical/README_initial_install_ualusr2007   <<<---
 Specific directions follow...
 
 This "recipe" should be implemented on a Scientific Linux 6.10, 32 bit, box.
