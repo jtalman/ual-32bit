@@ -16,6 +16,8 @@ _____________________________________________________________________________
 
 This recipe is for a user, "ualusr2007" using tcsh shell, on a "32 bit box".
 
+OS Scientific Linux 6.10 is normalized to for the time being.
+
 The contents of directory
       ~/tar-critical/
 are assumed available
@@ -35,7 +37,7 @@ This README file, README_initial_install_ualusr2007, is on the web as
 --->>>      https://github.com/jtalman/ualusr2007/tar-critical/README_initial_install_ualusr2007   <<<---
 Specific directions follow...
 
-This "recipe" should be implemented on a Scientific Linux 6.10, 32 bit, box.
+Again, this "recipe" should be implemented on a Scientific Linux 6.10, 32 bit, box.
 
 We've tended to start from configuration
       "Web Development Workstation"
