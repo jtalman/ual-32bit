@@ -76,7 +76,7 @@ managing
             ~/.tcshrc
 themselves.
 
-Stylistically, I (JDT), favor a dedicated gui box, installed from a pristine box.
+Stylistically, I (JDT), favor a dedicated gui box, installed on a pristine box.
 
 Once the "RECIPE's" first stanza below has been executed, the box is a
       "working box"
@@ -152,9 +152,6 @@ BEGIN SECOND STANZA:
             yes
 
 (libXmu)?
-      pushd /usr/lib/
-      su
-      
       The goal is this file structure:
             [root@T530-4 lib]# ll libXmu.so*
                   lrwxrwxrwx. 1 root root     15 Dec 24 06:39 libXmu.so -> libXmu.so.6.2.0
@@ -163,11 +160,13 @@ BEGIN SECOND STANZA:
                   -rwxr-xr-x. 1 root root 100344 Feb 22  2013 libXmu.so.6.2.0
 
       Commands such as:
+            pushd /usr/lib/
+            su
             ln -s libXmu.so.6.2.0 libXmu.so.6.2
             ...
+            [root@T530-4 lib]# exit
+            popd
       might be necessary.
-[root@T530-4 lib]# exit
-      popd 
 
       make >& make.log
         :     (spot check)
@@ -178,18 +177,22 @@ BEGIN SECOND STANZA:
 -----------------------------------------------------------------------
       pushd /usr/lib/
       su
-[root@T530-4 lib]# ll libXpm.so*
-
-  (ln -s /usr/lib/libXpm.so.4.11.0 /usr/lib/libXpm.so)?    T530-4 SL6.5
-  (ln -s /usr/lib/libXpm.so.6* /usr/lib/libXpm.so)?        T530-3 SL6.10
+(libXpm.so)?
       The goal is this file structure:
             [root@T530-4 lib]# ll libXpm.so*
                   lrwxrwxrwx. 1 root root    16 Dec 24 06:54 libXpm.so -> libXpm.so.4.11.0
                   lrwxrwxrwx. 1 root root    16 Dec 24  2021 libXpm.so.4 -> libXpm.so.4.11.0
                   lrwxrwxrwx. 1 root root    16 Dec 24 06:54 libXpm.so.4.11 -> libXpm.so.4.11.0
                   -rwxr-xr-x. 1 root root 69444 Feb 22  2013 libXpm.so.4.11.0
-[root@T530-4 lib]# exit
-     popd
+
+      Commands such as:
+            pushd /usr/lib/
+            su
+            (ln -s /usr/lib/libXpm.so.4.11.0 /usr/lib/libXpm.so)?    T530-4 SL6.5
+            (ln -s /usr/lib/libXpm.so.6* /usr/lib/libXpm.so)?        T530-3 SL6.10
+            [root@T530-4 lib]# exit
+            popd
+      might be necessary.
 
   cd $USPAS/tools/
   \cp ~/tar-critical/root.tar.gz .
