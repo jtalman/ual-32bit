@@ -17,7 +17,11 @@ This recipe is for a user, "ualusr2007" using tcsh shell, on a "32 bit box".
 
 The contents of directory
       ~/tar-critical/
-are assumed available, cloned/downloaded into ~/ualusr2007/tar-critical/ or such from "GIT"
+are assumed available
+
+They are cloned/downloaded into
+      ~/ualusr2007/ual-32bit/tar-critical/
+or such from "GIT" first,
       git clone https://github.com/jtalman/ual-32bit
 and then explicitly copied/moved there:
       ~/tar-critical/QT.tar
