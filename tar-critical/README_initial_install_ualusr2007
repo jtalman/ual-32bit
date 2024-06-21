@@ -25,8 +25,11 @@ They are cloned/downloaded into
 or such from "GIT" first,
       git clone https://github.com/jtalman/ual-32bit
 and then explicitly copied/moved there:
-      ~/tar-critical/QT.tar
-      ~/tar-critical/...
+      cp ~/ual-32bit/tar-critical/QT.tar    ~/tar-critical/QT.tar
+      cp ~/ual-32bit/tar-critical/ROOT.tar  ~/tar-critical/ROOT.tar
+      ...
+
+This tortured syntax will hopefully be improved at some point.
 
 This README file, README_initial_install_ualusr2007, is on the web as
 --->>>      https://github.com/jtalman/ualusr2007/tar-critical/README_initial_install_ualusr2007   <<<---
