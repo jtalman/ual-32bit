@@ -181,7 +181,7 @@ BEGIN SECOND STANZA:
             popd
       might be necessary.
 
-      make >& make.log
+      make >&! make.log
         :     (spot check)
       ll lib/libqt-mt.so.3.3.4
         :    8141331 this is with gcc34
@@ -215,7 +215,7 @@ BEGIN SECOND STANZA:
   cd root
   ./configure --enable-soversion --enable-qt --enable-table --disable-ldap --with-qt-incdir=$USPAS/tools/qt/include/ --with-qt-libdir=$USPAS/tools/qt/lib/
 
-  make all >& make.log            ??
+: make all >& make.log            ??
   make all >&! make.log           ??
 
   ll lib/libCore.so*
@@ -259,7 +259,7 @@ This stanza may or may not be necessary.
        :       XERCESCROOT $UAL/tools/tars/xerces-c-src_2_7_0
    cd $UAL
    make clean
-   make >& make.log    
+   make >&! make.log    
    ll codes/UAL/lib/linux/libUal.so
         : 643612
 
@@ -270,7 +270,7 @@ This stanza may or may not be necessary.
    tar xvf QT.tar
    cd QT
    make clean
-   make >& make.log
+   make >&! make.log
    ll lib/linux/libUalQt.so
         : 2607521
         : 2607541
@@ -283,7 +283,7 @@ This stanza may or may not be necessary.
    tar xvf ROOT.tar
    cd ROOT
    make clean
-   make >& make.log
+   make >&! make.log
    ll lib/linux/libUalRootViewers.so
         : 3702843
         : 3646685
