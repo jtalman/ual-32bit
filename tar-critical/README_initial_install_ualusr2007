@@ -217,7 +217,7 @@ BEGIN SECOND STANZA:
 
 : make all >& make.log            ??
   make all >&! make.log           ??
-
+        :     (spot check)
   ll lib/libCore.so*
         : 12      lib/libCore.so -> libCore.so.4
         : 15      lib/libCore.so.4 -> libCore.so.4.04
