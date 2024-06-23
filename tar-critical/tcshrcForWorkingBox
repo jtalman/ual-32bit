@@ -1,3 +1,5 @@
+cd
+
 setenv UALUSR     `pwd`
 setenv USPAS      $UALUSR/USPAS
 

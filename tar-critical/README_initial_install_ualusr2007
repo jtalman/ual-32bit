@@ -10,6 +10,7 @@ Mon Jun 17 2024
 Tue Jun 18 2024
 Wed Jun 19 2024
 Fri Jun 21 2024
+Sun Jun 23 2024
 _____________________________________________________________________________
 PREAMBLE
 _____________________________________________________________________________
@@ -72,6 +73,8 @@ Terminology used here is that this freshly set up, pristine box, is a
       "new box"
 This state has the lead stanza in the recipe.
 
+Really, new box means that USPAS has not yet been configured / installed. 
+
 In practice, the names involved here,
             tar-critical
             ual-32bit
@@ -120,6 +123,8 @@ For new box:
 
       cp ~/tar-critical/tcshrcForNewBox ~/.tcshrc
       exit
+            and launch new terminal
+                  TERMINAL GONE
 
    Launch New Terminal:
       cd
